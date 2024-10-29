@@ -1,25 +1,24 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _destroyDelay = 5f;
     [SerializeField] private float _speed = 5f;
-    
-    private Vector3 _movementDirection;
 
-    private void Awake()
-    {
-        Destroy(gameObject, _destroyDelay);
-    }
+    protected float _distance;
     
-    private void Update()
+    private Transform _target;
+    
+    protected void Update()
     {
-        transform.position += _movementDirection * _speed * Time.deltaTime;
+        if (_target == null)
+            return;
+        
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+        _distance = Vector3.Distance(transform.position, _target.position);
     }
 
-    public void SetMovementDirection(Vector3 direction)
+    public void SetTarget(Transform target)
     {
-        _movementDirection = direction.normalized;
+        _target = target;
     }
 }
