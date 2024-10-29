@@ -14,12 +14,14 @@ public class SpawnController : MonoBehaviour
     
     private IEnumerator SpawnEnemiesCoroutine()
     {
+        var waiter = new WaitForSeconds(_spawnInterval);
+        
         while (true)
         {
             var spawnPointIndex = Random.Range(0, _spawnPoints.Count);
             var randomSpawnPoint = _spawnPoints[spawnPointIndex];
             randomSpawnPoint.SpawnEnemy();
-            yield return new WaitForSeconds(_spawnInterval);
+            yield return waiter;
         }
     }
 }
