@@ -5,12 +5,11 @@ public class PatrolEnemy : Enemy
 {
     [SerializeField] private List<Transform> _waypoints;
     
-    private Transform _currentWaypoint;
+    private int _currentWaypointIndex;
     
     private void Awake()
     {
-        _currentWaypoint = _waypoints[0];
-        SetTarget(_currentWaypoint);
+        SetTarget(_waypoints[_currentWaypointIndex]);
     }
 
     private new void Update()
@@ -19,10 +18,8 @@ public class PatrolEnemy : Enemy
         
         if (_distance < 0.1f)
         {
-            var currentIndex = _waypoints.IndexOf(_currentWaypoint);
-            var nextIndex = (currentIndex + 1) % _waypoints.Count;
-            _currentWaypoint = _waypoints[nextIndex];
-            SetTarget(_currentWaypoint);
+            _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
+            SetTarget(_waypoints[_currentWaypointIndex]);
         }
     }
 }
