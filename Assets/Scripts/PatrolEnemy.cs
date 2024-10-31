@@ -17,7 +17,9 @@ public class PatrolEnemy : Enemy
     {
         base.Update();
         
-        if (DistanceToTarget < _minimalDistanceToWaypoint)
+        bool isCloseEnough = transform.position.IsEnoughClose(_waypoints[_currentWaypointIndex].position, _minimalDistanceToWaypoint);
+        
+        if (isCloseEnough)
         {
             _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
             SetTarget(_waypoints[_currentWaypointIndex]);
