@@ -9,10 +9,10 @@ public class SpawnController : MonoBehaviour
     
     private void Start()
     {
-        StartCoroutine(SpawnEnemiesCoroutine());
+        StartCoroutine(SpawnEnemies());
     }
     
-    private IEnumerator SpawnEnemiesCoroutine()
+    private IEnumerator SpawnEnemies()
     {
         var waiter = new WaitForSeconds(_spawnInterval);
         

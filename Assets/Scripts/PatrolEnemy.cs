@@ -5,6 +5,7 @@ public class PatrolEnemy : Enemy
 {
     [SerializeField] private List<Transform> _waypoints;
     
+    private float _minimalDistanceToWaypoint = 0.1f;
     private int _currentWaypointIndex;
     
     private void Awake()
@@ -16,7 +17,7 @@ public class PatrolEnemy : Enemy
     {
         base.Update();
         
-        if (_distance < 0.1f)
+        if (DistanceToTarget < _minimalDistanceToWaypoint)
         {
             _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
             SetTarget(_waypoints[_currentWaypointIndex]);
