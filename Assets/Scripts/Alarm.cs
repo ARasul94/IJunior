@@ -16,21 +16,19 @@ public class Alarm : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        bool isEnemy = other.gameObject.GetComponent<Enemy>()!= null;
-
-        if (isEnemy)
-            _enemyCounts++;
+        if (other.gameObject.TryGetComponent(out Enemy _) == false) 
+            return;
         
+        _enemyCounts++;
         LaunchCoroutine();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        bool isEnemy = other.gameObject.GetComponent<Enemy>() != null;
-        
-        if (isEnemy)
-            _enemyCounts--;
-        
+        if (other.gameObject.TryGetComponent(out Enemy _) == false) 
+            return;
+
+        _enemyCounts--;
         LaunchCoroutine();
     }
     
