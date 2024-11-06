@@ -20,7 +20,7 @@ public class BulletSpawner : MonoBehaviour
         {
             Vector3 vector3direction = (_target.position - transform.position).normalized;
             Bullet newBullet = Instantiate(_bulletPrefab, transform.position + vector3direction, Quaternion.identity);
-            newBullet.SetDirection(vector3direction);
+            newBullet.Initialize(vector3direction);
 
             yield return waiter;
         }
