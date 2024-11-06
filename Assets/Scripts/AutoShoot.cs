@@ -19,8 +19,8 @@ public class AutoShoot : MonoBehaviour
 
         while (enabled)
         {
-            var vector3direction = (_target.position - transform.position).normalized;
-            var newBullet = Instantiate(_bulletPrefab, transform.position + vector3direction, Quaternion.identity);
+            Vector3 vector3direction = (_target.position - transform.position).normalized;
+            Rigidbody newBullet = Instantiate(_bulletPrefab, transform.position + vector3direction, Quaternion.identity);
 
             newBullet.transform.forward = vector3direction;
             newBullet.velocity = vector3direction * _speed;

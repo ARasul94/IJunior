@@ -20,7 +20,7 @@ public class MoveByWaypoints : MonoBehaviour
 
     private void Update()
     {
-        var targetPoint = _waypoints[_waypointIndex];
+        Transform targetPoint = _waypoints[_waypointIndex];
         transform.position =
             Vector3.MoveTowards(transform.position, targetPoint.position, _speed * Time.deltaTime);
 
@@ -35,7 +35,7 @@ public class MoveByWaypoints : MonoBehaviour
         if (_waypointIndex >= _waypoints.Count)
             _waypointIndex = 0;
 
-        var thisPointVector = _waypoints[_waypointIndex].transform.position;
+        Vector3 thisPointVector = _waypoints[_waypointIndex].transform.position;
         transform.forward = thisPointVector - transform.position;
     }
 }
