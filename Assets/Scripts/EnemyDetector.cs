@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyDetector : MonoBehaviour
 {
     public int EnemyCounts => _enemyCounts;
+    
     public event Action EnemyEntered;
     public event Action EnemyExited;
     
