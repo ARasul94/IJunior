@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Alarm : MonoBehaviour
 {
+    [SerializeField] private EnemyDetector _enemyDetector;
     [SerializeField] private AudioSource _alarmSound;
     [SerializeField] private float _volumeChangeSpeed = .5f;
     
-    private int _enemyCounts;
     private Coroutine _adjustVolumeCoroutine;
 
     private void Start()
@@ -14,21 +14,25 @@ public class Alarm : MonoBehaviour
         _alarmSound.volume = 0f;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
     {
-        if (other.gameObject.TryGetComponent(out Enemy _) == false) 
-            return;
-        
-        _enemyCounts++;
-        LaunchCoroutine();
+        _enemyDetector.EnemyEntered += OnEnemyEntered;
+        _enemyDetector.EnemyExited += OnEnemyExited;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnDisable()
     {
-        if (other.gameObject.TryGetComponent(out Enemy _) == false) 
-            return;
-
-        _enemyCounts--;
+        _enemyDetector.EnemyEntered -= OnEnemyEntered;
+        _enemyDetector.EnemyExited -= OnEnemyExited;
+    }
+    
+    private void OnEnemyEntered()
+    {
+        LaunchCoroutine();
+    }
+    
+    private void OnEnemyExited()
+    {
         LaunchCoroutine();
     }
     
@@ -42,7 +46,7 @@ public class Alarm : MonoBehaviour
 
     private IEnumerator AdjustVolume()
     {
-        float targetVolume = _enemyCounts > 0 ? 1f : 0f;
+        float targetVolume = _enemyDetector.EnemyCounts > 0 ? 1f : 0f;
         
         while (Mathf.Approximately(_alarmSound.volume, targetVolume) == false)
         {
