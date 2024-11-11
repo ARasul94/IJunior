@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 182886956988687922}
   - component: {fileID: 8739028353444307456}
   - component: {fileID: 4516572295586454019}
+  - component: {fileID: 3219560138181318596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -183,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7d1c10eb0e40c8ab7a7ee85ad8f154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 1137232630721721239}
 --- !u!114 &8739028353444307456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +234,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.051398575, y: -0.12421328}
   m_Size: {x: 1.2804197, y: 1.7858392}
   m_Direction: 0
+--- !u!114 &3219560138181318596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068096125424162182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e16349bde8744b2b2a0dc114b1b66a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1137232630721721239}
 --- !u!1 &8311102042005411405
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MoveController), typeof(JumpController))]
+[RequireComponent(typeof(MoveController), typeof(JumpController), typeof(SpriteFlipController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    
+    private SpriteFlipController _spriteFlipController;
     private MoveController _moveController;
     private JumpController _jumpController;
 
@@ -12,13 +11,14 @@ public class PlayerController : MonoBehaviour
     {
         _moveController = GetComponent<MoveController>();
         _jumpController = GetComponent<JumpController>();
+        _spriteFlipController = GetComponent<SpriteFlipController>();
     }
 
     private void Update()
     {
         float direction = Input.GetAxis("Horizontal");
         _moveController.Move(direction);
-        _spriteRenderer.flipX = direction < 0;
+        _spriteFlipController.SetDirection(direction);
 
         if (Input.GetButtonDown("Jump"))
             _jumpController.Jump();
