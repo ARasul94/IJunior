@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundCheck: {fileID: 2816182851661204610}
   _groundCheckDistance: 0.1
-  _jumpForce: 10
+  _jumpForce: 7
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -246,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e16349bde8744b2b2a0dc114b1b66a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 1137232630721721239}
 --- !u!1 &8311102042005411405
 GameObject:
   m_ObjectHideFlags: 0
