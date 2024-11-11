@@ -11,6 +11,7 @@ public class PatrolEnemy : Enemy
     private new void Awake()
     {
         base.Awake();
+        
         SetTarget(_waypoints[_currentWaypointIndex]);
     }
 
