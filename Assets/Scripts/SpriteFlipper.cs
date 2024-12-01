@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SpriteFlipController : MonoBehaviour
+public class SpriteFlipper : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
 

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bba0f4b0cd4fe9a2f9b71bace5e447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpController: {fileID: 4525200206157106102}
+  _jumpBehaviour: {fileID: 4525200206157106102}
   _rigidbody: {fileID: 2850986667291240206}
   _animator: {fileID: 2228919816789333726}
 --- !u!50 &2850986667291240206

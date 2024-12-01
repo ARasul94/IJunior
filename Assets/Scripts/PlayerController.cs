@@ -1,26 +1,29 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MoveController), typeof(JumpController), typeof(SpriteFlipController))]
+[RequireComponent(typeof(MoveBehaviour), typeof(JumpBehaviour), typeof(SpriteFlipper))]
 public class PlayerController : MonoBehaviour
 {
-    private SpriteFlipController _spriteFlipController;
-    private MoveController _moveController;
-    private JumpController _jumpController;
+    private const string Horizontal = "Horizontal";
+    private const string Jump = "Jump";
+    
+    private SpriteFlipper _spriteFlipper;
+    private MoveBehaviour _moveBehaviour;
+    private JumpBehaviour _jumpBehaviour;
 
     private void Awake()
     {
-        _moveController = GetComponent<MoveController>();
-        _jumpController = GetComponent<JumpController>();
-        _spriteFlipController = GetComponent<SpriteFlipController>();
+        _moveBehaviour = GetComponent<MoveBehaviour>();
+        _jumpBehaviour = GetComponent<JumpBehaviour>();
+        _spriteFlipper = GetComponent<SpriteFlipper>();
     }
 
     private void Update()
     {
-        float direction = Input.GetAxis("Horizontal");
-        _moveController.Move(direction);
-        _spriteFlipController.SetDirection(direction);
+        float direction = Input.GetAxis(Horizontal);
+        _moveBehaviour.Move(direction);
+        _spriteFlipper.SetDirection(direction);
 
-        if (Input.GetButtonDown("Jump"))
-            _jumpController.Jump();
+        if (Input.GetButtonDown(Jump))
+            _jumpBehaviour.Jump();
     }
 }

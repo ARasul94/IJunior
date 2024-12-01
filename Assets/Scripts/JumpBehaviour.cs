@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JumpController : MonoBehaviour
+public class JumpBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckDistance = 0.1f;

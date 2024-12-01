@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class MoveController : MonoBehaviour
+public class MoveBehaviour : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
     

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class SceneReloadController : MonoBehaviour
+public class SceneReloader : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
