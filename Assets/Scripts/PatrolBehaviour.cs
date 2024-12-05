@@ -1,28 +1,32 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolEnemy : Enemy
+[RequireComponent(typeof(Enemy))]
+public class PatrolBehaviour : MonoBehaviour
 {
     [SerializeField] private List<Transform> _waypoints;
-    
+ 
+    private Enemy _enemy;
     private float _minimalDistanceToWaypoint = 0.1f;
     private int _currentWaypointIndex;
-    
-    private new void Awake()
+
+    private void Awake()
     {
-        base.Awake();
-        
-        SetTarget(_waypoints[_currentWaypointIndex]);
+        _enemy = GetComponent<Enemy>();
     }
 
-    private new void Update()
+    private void OnEnable()
     {
-        base.Update();
-        
+        _enemy.SetTarget(_waypoints[_currentWaypointIndex]);
+    }
+
+    private void Update()
+    {
         if (transform.position.IsEnoughClose(_waypoints[_currentWaypointIndex].position, _minimalDistanceToWaypoint))
         {
             _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
-            SetTarget(_waypoints[_currentWaypointIndex]);
+            _enemy.SetTarget(_waypoints[_currentWaypointIndex]);
         }
     }
 }
