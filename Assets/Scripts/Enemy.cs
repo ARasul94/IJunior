@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(MoveBehaviour), typeof(JumpBehaviour))]
@@ -6,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private PlayerDetectBehaviour _playerDetectBehaviour;
     [SerializeField] private PatrolBehaviour _patrolBehaviour;
+    [SerializeField] private Health _health;
     
     private MoveBehaviour _moveBehaviour;
     private JumpBehaviour _jumpBehaviour;
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 
         _playerDetectBehaviour.PlayerDetected += OnPlayerDetected;
         _playerDetectBehaviour.PlayerLost += OnPlayerLost;
+        _health.Die += Die;
     }
     
     protected void Update()
@@ -31,7 +32,13 @@ public class Enemy : MonoBehaviour
         var directionToTarget = (_target.position - transform.position).normalized;
         _moveBehaviour.Move(directionToTarget.x);
     }
-    
+
+    private void OnDestroy()
+    {
+        _playerDetectBehaviour.PlayerDetected -= OnPlayerDetected;
+        _playerDetectBehaviour.PlayerLost -= OnPlayerLost;
+    }
+
     public void SetTarget(Transform target)
     {
         _target = target;
@@ -47,5 +54,10 @@ public class Enemy : MonoBehaviour
     {
         _target = null;
         _patrolBehaviour.enabled = true;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
