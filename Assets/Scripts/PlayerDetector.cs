@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerDetectBehaviour : MonoBehaviour
+public class PlayerDetector : MonoBehaviour
 {
     public event Action<Transform> PlayerDetected;
     public event Action PlayerLost;

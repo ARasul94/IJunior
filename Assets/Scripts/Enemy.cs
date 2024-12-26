@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Mover), typeof(Jump))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private PlayerDetectBehaviour _playerDetectBehaviour;
+    [SerializeField] private PlayerDetector _playerDetector;
     [SerializeField] private Patroller _patroller;
     [SerializeField] private Health _health;
     
@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
         _mover = GetComponent<Mover>();
         _jump = GetComponent<Jump>();
 
-        _playerDetectBehaviour.PlayerDetected += OnPlayerDetected;
-        _playerDetectBehaviour.PlayerLost += OnPlayerLost;
+        _playerDetector.PlayerDetected += OnPlayerDetected;
+        _playerDetector.PlayerLost += OnPlayerLost;
         _health.Died += Died;
     }
     
@@ -35,8 +35,8 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerDetectBehaviour.PlayerDetected -= OnPlayerDetected;
-        _playerDetectBehaviour.PlayerLost -= OnPlayerLost;
+        _playerDetector.PlayerDetected -= OnPlayerDetected;
+        _playerDetector.PlayerLost -= OnPlayerLost;
         _health.Died -= Died;
     }
 
