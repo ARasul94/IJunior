@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private PlayerDetectBehaviour _playerDetectBehaviour;
-    [SerializeField] private PatrolBehaviour _patrolBehaviour;
+    [SerializeField] private Patroller _patroller;
     [SerializeField] private Health _health;
     
     private Mover _mover;
@@ -47,14 +47,14 @@ public class Enemy : MonoBehaviour
 
     private void OnPlayerDetected(Transform player)
     {
-        _patrolBehaviour.enabled = false;
+        _patroller.enabled = false;
         _target = player;
     }
     
     private void OnPlayerLost()
     {
         _target = null;
-        _patrolBehaviour.enabled = true;
+        _patroller.enabled = true;
     }
 
     private void Died()

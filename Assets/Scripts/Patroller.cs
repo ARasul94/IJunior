@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
-public class PatrolBehaviour : MonoBehaviour
+public class Patroller : MonoBehaviour
 {
     [SerializeField] private List<Transform> _waypoints;
  
