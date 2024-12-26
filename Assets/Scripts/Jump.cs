@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JumpBehaviour : MonoBehaviour
+public class Jump : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckDistance = 0.1f;
@@ -22,7 +22,7 @@ public class JumpBehaviour : MonoBehaviour
         UpdateGroundedStatus();
     }
 
-    public void Jump()
+    public void MakeJump()
     {
         UpdateGroundedStatus();
         

@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bba0f4b0cd4fe9a2f9b71bace5e447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpBehaviour: {fileID: 1734170999713377336}
+  _jump: {fileID: 1734170999713377336}
   _rigidbody: {fileID: 8051107264727587938}
   _animator: {fileID: 6897954491108216699}
 --- !u!70 &4516572295586454019
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88afcfdffdff4f9d93eceebc2d193549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _max: 100
 --- !u!114 &6269666263727435302
 MonoBehaviour:
   m_ObjectHideFlags: 0

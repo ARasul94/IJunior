@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bba0f4b0cd4fe9a2f9b71bace5e447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpBehaviour: {fileID: 4525200206157106102}
+  _jump: {fileID: 4525200206157106102}
   _rigidbody: {fileID: 2850986667291240206}
   _animator: {fileID: 2228919816789333726}
 --- !u!50 &2850986667291240206
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88afcfdffdff4f9d93eceebc2d193549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _max: 100
 --- !u!1001 &1754785363044891421
 PrefabInstance:
   m_ObjectHideFlags: 0

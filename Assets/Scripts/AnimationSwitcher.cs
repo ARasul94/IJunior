@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AnimationSwitcher : MonoBehaviour
 {
-    [SerializeField] private JumpBehaviour _jumpBehaviour;
+    [SerializeField] private Jump _jump;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private Animator _animator;
 
@@ -20,7 +19,7 @@ public class AnimationSwitcher : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetBool(_isGroundedHash, _jumpBehaviour.IsGrounded);
+        _animator.SetBool(_isGroundedHash, _jump.IsGrounded);
         _animator.SetFloat(_speedYHash, _rigidbody.velocity.y);
         _animator.SetFloat(_speedXHash, Mathf.Abs(_rigidbody.velocity.x));
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MoveBehaviour), typeof(JumpBehaviour))]
+[RequireComponent(typeof(MoveBehaviour), typeof(Jump))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private PlayerDetectBehaviour _playerDetectBehaviour;
@@ -8,13 +8,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Health _health;
     
     private MoveBehaviour _moveBehaviour;
-    private JumpBehaviour _jumpBehaviour;
+    private Jump _jump;
     private Transform _target;
 
     protected void Awake()
     {
         _moveBehaviour = GetComponent<MoveBehaviour>();
-        _jumpBehaviour = GetComponent<JumpBehaviour>();
+        _jump = GetComponent<Jump>();
 
         _playerDetectBehaviour.PlayerDetected += OnPlayerDetected;
         _playerDetectBehaviour.PlayerLost += OnPlayerLost;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         if (_target == null)
             return;
         
-        if (_jumpBehaviour.IsGrounded == false)
+        if (_jump.IsGrounded == false)
             return;
         
         var directionToTarget = (_target.position - transform.position).normalized;
