@@ -309,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed284b1f2dec4516bac8bcefe10b8973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerDetectBehaviour: {fileID: 0}
-  _patrolBehaviour: {fileID: 8940297992783599185}
+  _playerDetector: {fileID: 1757817688463779913}
+  _patroller: {fileID: 8940297992783599185}
   _health: {fileID: 5189395535231081197}
 --- !u!114 &8231875208878175356
 MonoBehaviour:
