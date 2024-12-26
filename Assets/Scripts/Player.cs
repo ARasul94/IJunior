@@ -1,7 +1,7 @@
 using Items;
 using UnityEngine;
 
-[RequireComponent(typeof(MoveBehaviour), typeof(Jump), typeof(Health))]
+[RequireComponent(typeof(Mover), typeof(Jump), typeof(Health))]
 public class Player : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
@@ -9,13 +9,13 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Inventory _inventory;
     
-    private MoveBehaviour _moveBehaviour;
+    private Mover _mover;
     private Jump _jump;
     private Health _health;
 
     private void Awake()
     {
-        _moveBehaviour = GetComponent<MoveBehaviour>();
+        _mover = GetComponent<Mover>();
         _jump = GetComponent<Jump>();
         _health = GetComponent<Health>();
     }
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         float direction = Input.GetAxis(Horizontal);
-        _moveBehaviour.Move(direction);
+        _mover.Move(direction);
 
         if (Input.GetButtonDown(Jump))
             _jump.MakeJump();
