@@ -8,6 +8,6 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        _healthField.text = $"{_health.CurrentHealth:N0}/{_health.MaxHealth:N0}";
+        _healthField.text = $"{_health.Current:N0}/{_health.Max:N0}";
     }
 }

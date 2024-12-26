@@ -8,13 +8,13 @@ public class PlayerDetectBehaviour : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out PlayerController player))
+        if (other.TryGetComponent(out Player player))
             PlayerDetected?.Invoke(player.transform);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.TryGetComponent(out PlayerController player))
+        if (other.TryGetComponent(out Player player))
             PlayerLost?.Invoke();
     }
 }

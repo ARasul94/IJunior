@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 
         _playerDetectBehaviour.PlayerDetected += OnPlayerDetected;
         _playerDetectBehaviour.PlayerLost += OnPlayerLost;
-        _health.Die += Die;
+        _health.Died += Died;
     }
     
     protected void Update()
@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     {
         _playerDetectBehaviour.PlayerDetected -= OnPlayerDetected;
         _playerDetectBehaviour.PlayerLost -= OnPlayerLost;
+        _health.Died -= Died;
     }
 
     public void SetTarget(Transform target)
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
         _patrolBehaviour.enabled = true;
     }
 
-    private void Die()
+    private void Died()
     {
         Destroy(gameObject);
     }

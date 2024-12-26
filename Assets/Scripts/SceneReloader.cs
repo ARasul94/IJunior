@@ -9,12 +9,17 @@ public class SceneReloader : MonoBehaviour
 
     private void Awake()
     {
-        _playerHealth.Die += ReloadScene;
+        _playerHealth.Died += ReloadScene;
+    }
+
+    private void OnDestroy()
+    {
+        _playerHealth.Died -= ReloadScene;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out PlayerController player))
+        if (other.TryGetComponent(out Player player))
             ReloadScene();
     }
 
