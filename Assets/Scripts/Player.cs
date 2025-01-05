@@ -31,18 +31,18 @@ public class Player : MonoBehaviour
     {
         if (other.TryGetComponent(out Item item))
         {
-            if (item is HealthPack)
+            if (item is HealthPack healthPack)
             {
                 if (_health.IsNeedHeal())
                 {
-                    _health.TakeHeal((item as HealthPack).HealPower);
-                    Destroy(item.gameObject);
+                    _health.TakeHeal(healthPack.HealPower);
+                    Destroy(healthPack.gameObject);
                 }
             }
-            else if (item is Coin)
+            else if (item is Coin coin)
             {
-                _inventory.AddItem(item);
-                Destroy(item.gameObject);
+                _inventory.AddCoin(coin);
+                Destroy(coin.gameObject);
             }
         }
     }

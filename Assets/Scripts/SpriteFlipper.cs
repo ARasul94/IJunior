@@ -15,9 +15,6 @@ public class SpriteFlipper : MonoBehaviour
 
     private void Update()
     {
-        if (_rigidbody2D.velocity.x < 0)
-            _spriteRenderer.flipX = true;
-        else
-            _spriteRenderer.flipX = false;
+        _spriteRenderer.flipX = _rigidbody2D.velocity.x < 0;
     }
 }

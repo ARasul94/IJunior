@@ -4,13 +4,14 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _max = 100;
+    
+    private float _current;
 
     public event Action Died;
     public event Action Changed;
     public float Current => _current;
     public float Max => _max;
     
-    private float _current;
 
     private void Awake()
     {
@@ -19,10 +20,7 @@ public class Health : MonoBehaviour
 
     public bool IsNeedHeal()
     {
-        if (Mathf.Approximately(_current, _max))
-            return false;
-
-        return true;
+        return Mathf.Approximately(_current, _max) == false;
     }
 
     public void TakeHeal(float amount)

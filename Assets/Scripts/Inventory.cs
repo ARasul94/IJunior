@@ -15,12 +15,9 @@ public class Inventory: MonoBehaviour
         _coinsCount = 0;
     }
 
-    public void AddItem(Item item)
+    public void AddCoin(Coin coin)
     {
-        if (item is Coin)
-        {
-            _coinsCount++;
-            CoinCountChanged?.Invoke();
-        }
+        _coinsCount++;
+        CoinCountChanged?.Invoke();
     }
 }
