@@ -49,7 +49,6 @@ public class Enemy : MonoBehaviour
     {
         _patroller.enabled = false;
         _target = player;
-        Debug.LogError(gameObject.name);
     }
     
     private void OnPlayerLost()

@@ -17,16 +17,19 @@ public class Health : MonoBehaviour
         _current = _max;
     }
 
-    public bool TakeHeal(float amount)
+    public bool IsNeedHeal()
     {
         if (Mathf.Approximately(_current, _max))
             return false;
-        
-        _current += amount;
 
+        return true;
+    }
+
+    public void TakeHeal(float amount)
+    {
+        _current += amount;
         _current = Math.Min(_current, _max);
         Changed?.Invoke();
-        return true;
     }
 
     public void TakeDamage(float amount)

@@ -33,8 +33,11 @@ public class Player : MonoBehaviour
         {
             if (item is HealthPack)
             {
-                if (_health.TakeHeal((item as HealthPack).HealPower))
+                if (_health.IsNeedHeal())
+                {
+                    _health.TakeHeal((item as HealthPack).HealPower);
                     Destroy(item.gameObject);
+                }
             }
             else if (item is Coin)
             {
