@@ -1,32 +1,30 @@
 using Items;
 using UnityEngine;
 
-[RequireComponent(typeof(Mover), typeof(Jump), typeof(Health))]
+[RequireComponent(typeof(Mover), typeof(Jumper), typeof(Health))]
 public class Player : MonoBehaviour
 {
-    private const string Horizontal = "Horizontal";
-    private const string Jump = "Jump";
-
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private InputHandler _inputHandler;
     
     private Mover _mover;
-    private Jump _jump;
+    private Jumper _jumper;
     private Health _health;
 
     private void Awake()
     {
         _mover = GetComponent<Mover>();
-        _jump = GetComponent<Jump>();
+        _jumper = GetComponent<Jumper>();
         _health = GetComponent<Health>();
     }
 
     private void Update()
     {
-        float direction = Input.GetAxis(Horizontal);
+        float direction = _inputHandler.GetHorizontalInput();
         _mover.Move(direction);
 
-        if (Input.GetButtonDown(Jump))
-            _jump.MakeJump();
+        if (_inputHandler.IsJumpRequired())
+            _jumper.MakeJump();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,11 +33,8 @@ public class Player : MonoBehaviour
         {
             if (item is HealthPack)
             {
-                if (Mathf.Approximately(_health.Current, _health.Max))
-                    return;
-                
-                _health.TakeHeal((item as HealthPack).HealPower);
-                Destroy(item.gameObject);
+                if (_health.TakeHeal((item as HealthPack).HealPower))
+                    Destroy(item.gameObject);
             }
             else if (item is Coin)
             {

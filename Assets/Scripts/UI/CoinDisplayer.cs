@@ -11,12 +11,15 @@ namespace UI
 
         private void Awake()
         {
-            _inventory.CoinCountChanged += OnCoinCountChanged;
-            
             OnCoinCountChanged();
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            _inventory.CoinCountChanged += OnCoinCountChanged;
+        }
+
+        private void OnDisable()
         {
             _inventory.CoinCountChanged -= OnCoinCountChanged;
         }
