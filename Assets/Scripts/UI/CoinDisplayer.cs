@@ -1,4 +1,5 @@
 ﻿using System;
+using PlayerComponents;
 using TMPro;
 using UnityEngine;
 

@@ -1,4 +1,6 @@
 using System;
+using Behaviours;
+using PlayerComponents;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
