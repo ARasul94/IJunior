@@ -27,6 +27,9 @@ namespace Behaviours
 
         public void TakeHeal(float amount)
         {
+            if (amount < 0)
+                return;
+            
             _current += amount;
             _current = Math.Min(_current, _max);
             Changed?.Invoke();
@@ -34,6 +37,9 @@ namespace Behaviours
 
         public void TakeDamage(float amount)
         {
+            if (amount < 0)
+                return;
+            
             _current -= amount;
 
             _current = Math.Max(_current, 0);
