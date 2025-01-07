@@ -1,3 +1,4 @@
+using System;
 using Behaviours;
 using Items;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace PlayerComponents
         private Mover _mover;
         private Jumper _jumper;
         private Health _health;
+        private float _moveDirection = 0;
+        private bool _isJumpRequired;
 
         private void Awake()
         {
@@ -23,11 +26,19 @@ namespace PlayerComponents
 
         private void Update()
         {
-            float direction = _inputHandler.GetHorizontalInput();
-            _mover.Move(direction);
+            _moveDirection = _inputHandler.GetHorizontalInput();
+            _isJumpRequired = _inputHandler.IsJumpRequired() || _isJumpRequired;
+        }
 
-            if (_inputHandler.IsJumpRequired())
+        private void FixedUpdate()
+        {
+            _mover.Move(_moveDirection);
+
+            if (_isJumpRequired)
+            {
                 _jumper.MakeJump();
+                _isJumpRequired = false;
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)

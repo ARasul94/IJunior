@@ -1,3 +1,4 @@
+using System;
 using Behaviours;
 using UnityEngine;
 
@@ -23,8 +24,8 @@ namespace Enemy
             _playerDetector.PlayerLost += OnPlayerLost;
             _health.Died += Died;
         }
-    
-        protected void Update()
+
+        protected void FixedUpdate()
         {
             if (_target == null)
                 return;
