@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5833306272272313580}
   - component: {fileID: 7141901678488715968}
   - component: {fileID: 382067371575739804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,12 +196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf98f4ff26c4007a7246ce915fe7d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _period: 0.1
   _groundCheck: {fileID: 2816182851661204610}
   _groundCheckDistance: 0.1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _groundCheckPeriod: 0.1
 --- !u!114 &382067371575739804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1071332956668905753}
   - component: {fileID: 2874481034587503690}
   - component: {fileID: 8113286896800113697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2816182851661204610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,13 +391,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9182486946174146500}
     m_Modifications:
+    - target: {fileID: 1743960668286982608, guid: 6bcf4b4d385416c4c83afd911959cdb4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5666984799768878051, guid: 6bcf4b4d385416c4c83afd911959cdb4, type: 3}
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 5666984799768878051, guid: 6bcf4b4d385416c4c83afd911959cdb4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6383855597327561228, guid: 6bcf4b4d385416c4c83afd911959cdb4, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461249981568605134, guid: 6bcf4b4d385416c4c83afd911959cdb4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8706127950953299490, guid: 6bcf4b4d385416c4c83afd911959cdb4, type: 3}
       propertyPath: _health

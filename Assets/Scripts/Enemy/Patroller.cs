@@ -27,7 +27,7 @@ namespace Enemy
         {
             if (transform.position.IsEnoughClose(_waypoints[_currentWaypointIndex].position, _minimalDistanceToWaypoint))
             {
-                _currentWaypointIndex = (_currentWaypointIndex + 1) % _waypoints.Count;
+                _currentWaypointIndex = ++_currentWaypointIndex % _waypoints.Count;
                 _enemy.SetTarget(_waypoints[_currentWaypointIndex]);
             }
         }

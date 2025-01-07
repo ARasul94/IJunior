@@ -1,6 +1,4 @@
-using System;
 using Behaviours;
-using Items;
 using UnityEngine;
 
 namespace PlayerComponents

@@ -1,43 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using Helpers;
 using UnityEngine;
 
 namespace Behaviours
 {
-    public class GroundDetector: MonoBehaviour
+    public class GroundDetector: CoroutineBehaviour
     {
         [SerializeField] private Transform _groundCheck;
         [SerializeField] private float _groundCheckDistance = 0.1f;
         [SerializeField] private LayerMask _groundLayer;
-        [SerializeField] private float _groundCheckPeriod = 0.1f;
         
         private bool _isGrounded;
-        private Coroutine _updateCoroutine;
         
         public bool IsGrounded => _isGrounded;
-        
-        private void OnEnable()
+
+        protected override void OnEnable()
         {
-            _updateCoroutine = StartCoroutine(UpdateGroundedCoroutine());
+            UpdateAction += UpdateGroundedStatus;
+            base.OnEnable();
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
-            if (_updateCoroutine != null)
-            {
-                StopCoroutine(_updateCoroutine);
-                _updateCoroutine = null;
-            }
-        }
-        
-        private IEnumerator UpdateGroundedCoroutine()
-        {
-            WaitForSeconds wait = new WaitForSeconds(_groundCheckPeriod);
-        
-            while (true)
-            {
-                UpdateGroundedStatus();
-                yield return wait;
-            }
+            UpdateAction -= UpdateGroundedStatus;
+            base.OnDisable();
         }
 
         private void UpdateGroundedStatus()
