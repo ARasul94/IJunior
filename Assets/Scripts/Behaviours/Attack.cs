@@ -1,5 +1,4 @@
-﻿using Detectors;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Behaviours
 {

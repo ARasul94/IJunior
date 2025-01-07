@@ -1,5 +1,4 @@
 using Behaviours;
-using Characters.PlayerComponents;
 using Detectors;
 using UnityEngine;
 

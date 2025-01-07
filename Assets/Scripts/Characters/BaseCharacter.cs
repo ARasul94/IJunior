@@ -1,5 +1,4 @@
-﻿using System;
-using Behaviours;
+﻿using Behaviours;
 using UnityEngine;
 
 namespace Characters
