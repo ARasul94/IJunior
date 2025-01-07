@@ -9,7 +9,7 @@ namespace Animations
         private const string SpeedX = nameof(SpeedX);
         private const string SpeedY = nameof(SpeedY);
         
-        [SerializeField] private Jumper _jumper;
+        [SerializeField] private GroundDetector _groundDetector;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Animator _animator;
 
@@ -26,7 +26,7 @@ namespace Animations
 
         private void Update()
         {
-            _animator.SetBool(_isGroundedHash, _jumper.IsGrounded);
+            _animator.SetBool(_isGroundedHash, _groundDetector.IsGrounded);
             _animator.SetFloat(_speedYHash, _rigidbody.velocity.y);
             _animator.SetFloat(_speedXHash, Mathf.Abs(_rigidbody.velocity.x));
         }

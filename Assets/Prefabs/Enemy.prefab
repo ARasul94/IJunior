@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bba0f4b0cd4fe9a2f9b71bace5e447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumper: {fileID: 4525200206157106102}
+  _groundDetector: {fileID: 2249041037794628411}
   _rigidbody: {fileID: 2850986667291240206}
   _animator: {fileID: 3172487906917423353}
 --- !u!1 &5858902315322614314
@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 5605588448727878669}
   - component: {fileID: 8231875208878175356}
   - component: {fileID: 5189395535231081197}
+  - component: {fileID: 2249041037794628411}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -258,13 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbecc8072fc540488da34fb2086d2f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundCheck: {fileID: 6027419813489759119}
-  _groundCheckDistance: 0.1
   _jumpForce: 10
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _groundCheckPeriod: 0.1
 --- !u!50 &2850986667291240206
 Rigidbody2D:
   serializedVersion: 4
@@ -362,6 +357,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _max: 100
+--- !u!114 &2249041037794628411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858902315322614314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf98f4ff26c4007a7246ce915fe7d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheck: {fileID: 6027419813489759119}
+  _groundCheckDistance: 0.1
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _groundCheckPeriod: 0.1
 --- !u!1001 &1754785363044891421
 PrefabInstance:
   m_ObjectHideFlags: 0

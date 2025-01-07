@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    [RequireComponent(typeof(Mover), typeof(Jumper))]
+    [RequireComponent(typeof(Mover), typeof(GroundDetector))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private PlayerDetector _playerDetector;
@@ -11,13 +11,13 @@ namespace Enemy
         [SerializeField] private Health _health;
     
         private Mover _mover;
-        private Jumper _jumper;
+        private GroundDetector _groundDetector;
         private Transform _target;
 
         protected void Awake()
         {
             _mover = GetComponent<Mover>();
-            _jumper = GetComponent<Jumper>();
+            _groundDetector = GetComponent<GroundDetector>();
 
             _playerDetector.PlayerDetected += OnPlayerDetected;
             _playerDetector.PlayerLost += OnPlayerLost;
@@ -29,7 +29,7 @@ namespace Enemy
             if (_target == null)
                 return;
         
-            if (_jumper.IsGrounded == false)
+            if (_groundDetector.IsGrounded == false)
                 return;
         
             var directionToTarget = (_target.position - transform.position).normalized;

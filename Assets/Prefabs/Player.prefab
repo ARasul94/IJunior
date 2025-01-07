@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4205465948172818848}
   - component: {fileID: 6269666263727435302}
   - component: {fileID: 5833306272272313580}
+  - component: {fileID: 7141901678488715968}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -94,13 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbecc8072fc540488da34fb2086d2f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundCheck: {fileID: 2816182851661204610}
-  _groundCheckDistance: 0.1
   _jumpForce: 8
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _groundCheckPeriod: 0.1
 --- !u!114 &182886956988687922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +184,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2d398994574a848821e87905fe0e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7141901678488715968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068096125424162182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf98f4ff26c4007a7246ce915fe7d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundCheck: {fileID: 2816182851661204610}
+  _groundCheckDistance: 0.1
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _groundCheckPeriod: 0.1
 --- !u!1 &7897524227947421935
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bba0f4b0cd4fe9a2f9b71bace5e447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumper: {fileID: 1734170999713377336}
+  _groundDetector: {fileID: 7141901678488715968}
   _rigidbody: {fileID: 8051107264727587938}
   _animator: {fileID: 1071332956668905753}
 --- !u!1 &8311102042005411405
