@@ -1,27 +1,26 @@
-using System;
 using Behaviours;
+using Characters.PlayerComponents;
+using Detectors;
 using UnityEngine;
 
-namespace Enemy
+namespace Characters.EnemyComponents
 {
-    [RequireComponent(typeof(Mover), typeof(GroundDetector))]
-    public class Enemy : MonoBehaviour
+    [RequireComponent(typeof(GroundDetector))]
+    public class Enemy : BaseCharacter
     {
-        [SerializeField] private PlayerDetector _playerDetector;
+        [SerializeField] private CharacterDetector _characterDetector;
         [SerializeField] private Patroller _patroller;
-        [SerializeField] private Health _health;
-    
-        private Mover _mover;
+        
         private GroundDetector _groundDetector;
         private Transform _target;
 
-        protected void Awake()
+        protected override void Awake()
         {
-            _mover = GetComponent<Mover>();
+            base.Awake();
             _groundDetector = GetComponent<GroundDetector>();
 
-            _playerDetector.PlayerDetected += OnPlayerDetected;
-            _playerDetector.PlayerLost += OnPlayerLost;
+            _characterDetector.CharacterDetected += OnCharacterDetected;
+            _characterDetector.CharacterLost += OnCharacterLost;
             _health.Died += Died;
         }
 
@@ -39,8 +38,8 @@ namespace Enemy
 
         private void OnDestroy()
         {
-            _playerDetector.PlayerDetected -= OnPlayerDetected;
-            _playerDetector.PlayerLost -= OnPlayerLost;
+            _characterDetector.CharacterDetected -= OnCharacterDetected;
+            _characterDetector.CharacterLost -= OnCharacterLost;
             _health.Died -= Died;
         }
 
@@ -49,13 +48,13 @@ namespace Enemy
             _target = target;
         }
 
-        private void OnPlayerDetected(Transform player)
+        private void OnCharacterDetected(BaseCharacter character)
         {
             _patroller.enabled = false;
-            _target = player;
+            _target = character.transform;
         }
     
-        private void OnPlayerLost()
+        private void OnCharacterLost()
         {
             _target = null;
             _patroller.enabled = true;

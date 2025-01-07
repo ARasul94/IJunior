@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Detectors;
+using UnityEngine;
 
 namespace Behaviours
 {
@@ -8,7 +9,8 @@ namespace Behaviours
         [SerializeField] private float _power;
     
         private float _cooldown;
-        private Health _target;
+
+        public bool IsAvailable => _cooldown <= 0;
 
         private void Awake()
         {
@@ -18,31 +20,16 @@ namespace Behaviours
         private void Update()
         {
             if (_cooldown > 0)
-            {
                 _cooldown -= Time.deltaTime;
-                return;
+        }
+
+        public void MakeAttack(Health target)
+        {
+            if (IsAvailable)
+            {
+                target.TakeDamage(_power);
+                _cooldown = _speed;
             }
-
-            if (_target == null)
-                return;
-        
-            _target.TakeDamage(_power);
-            _cooldown = _speed;
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.TryGetComponent(out Health target))
-                _target = target;
-        }
-
-        private void OnCollisionExit2D(Collision2D other)
-        {
-            if (_target == null)
-                return;
-
-            if (other.gameObject.TryGetComponent(out Health target) && _target == target)
-                _target = null;
         }
     }
 }

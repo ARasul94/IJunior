@@ -2,7 +2,7 @@
 using Items;
 using UnityEngine;
 
-namespace PlayerComponents
+namespace Characters.PlayerComponents
 {
     public class Inventory: MonoBehaviour
     {

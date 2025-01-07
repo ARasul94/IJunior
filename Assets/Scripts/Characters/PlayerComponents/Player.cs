@@ -1,28 +1,23 @@
 using Behaviours;
 using UnityEngine;
 
-namespace PlayerComponents
+namespace Characters.PlayerComponents
 {
-    [RequireComponent(typeof(Mover), typeof(Jumper))]
-    public class Player : MonoBehaviour
+    public class Player : BaseCharacter
     {
         [SerializeField] private InputHandler _inputHandler;
-    
-        private Mover _mover;
-        private Jumper _jumper;
+        [SerializeField] private AttackBehaviour _attackBehaviour;
+        
         private float _moveDirection = 0;
         private bool _isJumpRequired;
-
-        private void Awake()
-        {
-            _mover = GetComponent<Mover>();
-            _jumper = GetComponent<Jumper>();
-        }
+        private bool _isAttackRequired;
 
         private void Update()
         {
             _moveDirection = _inputHandler.GetHorizontalInput();
             _isJumpRequired = _inputHandler.IsJumpRequired() || _isJumpRequired;
+            if (_inputHandler.IsAttackRequired())
+                _attackBehaviour.Attack();
         }
 
         private void FixedUpdate()

@@ -2,7 +2,7 @@
 using Items;
 using UnityEngine;
 
-namespace PlayerComponents
+namespace Characters.PlayerComponents
 {
     [RequireComponent(typeof(Health), typeof(Inventory))]
     public class Collector: MonoBehaviour

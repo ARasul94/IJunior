@@ -14,4 +14,9 @@ public class InputHandler : MonoBehaviour
     {
         return Input.GetButtonDown(Jump);
     }
+
+    public bool IsAttackRequired()
+    {
+        return Input.GetMouseButtonDown(0);
+    }
 }

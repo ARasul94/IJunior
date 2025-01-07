@@ -1,6 +1,6 @@
 using System;
 using Behaviours;
-using PlayerComponents;
+using Characters.PlayerComponents;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

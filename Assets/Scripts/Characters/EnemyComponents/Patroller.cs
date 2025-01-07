@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Helpers;
 using UnityEngine;
 
-namespace Enemy
+namespace Characters.EnemyComponents
 {
     [RequireComponent(typeof(Enemy))]
     public class Patroller : MonoBehaviour
