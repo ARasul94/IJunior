@@ -13957,7 +13957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548964192}
-  - component: {fileID: 548964191}
+  - component: {fileID: 548964193}
   m_Layer: 0
   m_Name: AppleSpawner
   m_TagString: Untagged
@@ -13965,21 +13965,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &548964191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548964190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b5e18ffaa934c57a96bd4d6e8ce4929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 2206212030496440029, guid: 6d722b50cb0fe4fe3b571e7686ba6678, type: 3}
-  _minSpawnCount: 5
-  _maxSpawnCount: 10
 --- !u!4 &548964192
 Transform:
   m_ObjectHideFlags: 0
@@ -14009,6 +13994,21 @@ Transform:
   - {fileID: 2055239286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &548964193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548964190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfcee7f9b1a142028e3c62b7faf3f12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 4352922153735493420, guid: 6d722b50cb0fe4fe3b571e7686ba6678, type: 3}
+  _minSpawnCount: 2
+  _maxSpawnCount: 5
 --- !u!1 &633036663
 GameObject:
   m_ObjectHideFlags: 0
@@ -14781,7 +14781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064124935}
-  - component: {fileID: 1064124934}
+  - component: {fileID: 1064124936}
   m_Layer: 0
   m_Name: StrawberySpawner
   m_TagString: Untagged
@@ -14789,21 +14789,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1064124934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064124933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b5e18ffaa934c57a96bd4d6e8ce4929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 2206212030496440029, guid: 549b8e879d8c5624ba3dd6b141cad555, type: 3}
-  _minSpawnCount: 1
-  _maxSpawnCount: 3
 --- !u!4 &1064124935
 Transform:
   m_ObjectHideFlags: 0
@@ -14822,6 +14807,21 @@ Transform:
   - {fileID: 959974574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064124936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064124933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 986021ebfd1e4ada9fa50cb28ea838a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 5209361212963591858, guid: 549b8e879d8c5624ba3dd6b141cad555, type: 3}
+  _minSpawnCount: 1
+  _maxSpawnCount: 3
 --- !u!1 &1084663719
 GameObject:
   m_ObjectHideFlags: 0
