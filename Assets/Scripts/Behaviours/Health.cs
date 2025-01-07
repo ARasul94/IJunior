@@ -1,10 +1,13 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Behaviours
 {
     public class Health : MonoBehaviour
     {
+        private const int Min = 0;
+        
         [SerializeField] private int _max = 100;
     
         private float _current;
@@ -30,8 +33,7 @@ namespace Behaviours
             if (amount < 0)
                 return;
             
-            _current += amount;
-            _current = Math.Min(_current, _max);
+            _current = Math.Clamp(_current + amount, Min, _max);
             Changed?.Invoke();
         }
 
@@ -39,13 +41,11 @@ namespace Behaviours
         {
             if (amount < 0)
                 return;
-            
-            _current -= amount;
 
-            _current = Math.Max(_current, 0);
+            _current = Math.Clamp(_current - amount, Min, _max);
             Changed?.Invoke();
         
-            if (_current <= 0)
+            if (_current <= Min)
                 Died?.Invoke();
         }
     }
