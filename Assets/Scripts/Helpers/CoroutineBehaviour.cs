@@ -30,7 +30,7 @@ namespace Helpers
         {
             WaitForSeconds wait = new WaitForSeconds(_period);
         
-            while (true)
+            while (enabled)
             {
                 UpdateAction?.Invoke();
                 yield return wait;
