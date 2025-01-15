@@ -1,8 +1,7 @@
-﻿using System;
-using Behaviours;
+﻿using HealthPackage.Scripts.Behaviours;
 using UnityEngine;
 
-namespace UI.HealthIndicator
+namespace HealthPackage.Scripts.UI.HealthIndicator
 {
     public abstract class HealthIndicatorBase : MonoBehaviour
     {

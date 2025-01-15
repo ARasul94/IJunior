@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.HealthIndicator
+namespace HealthPackage.Scripts.UI.HealthIndicator
 {
     public class HealthBarIndicator : HealthIndicatorBase
     {

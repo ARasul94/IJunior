@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace UI.HealthIndicator
+namespace HealthPackage.Scripts.UI.HealthIndicator
 {
     public class HealthTextIndicator : HealthIndicatorBase
     {

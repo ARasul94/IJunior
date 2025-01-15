@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace UI.HealthIndicator
+namespace HealthPackage.Scripts.UI.HealthIndicator
 {
     public class HealthBarSmoothIndicator : HealthIndicatorBase
     {
