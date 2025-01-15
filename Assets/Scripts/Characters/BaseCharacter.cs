@@ -1,4 +1,5 @@
 ﻿using Behaviours;
+using HealthPackage.Scripts.Behaviours;
 using UnityEngine;
 
 namespace Characters

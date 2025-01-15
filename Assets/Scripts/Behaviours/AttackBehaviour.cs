@@ -1,5 +1,6 @@
 ﻿using Characters;
 using Detectors;
+using HealthPackage.Scripts.Behaviours;
 using UnityEngine;
 
 namespace Behaviours

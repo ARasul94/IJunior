@@ -1,6 +1,5 @@
-using System;
-using Behaviours;
 using Characters.PlayerComponents;
+using HealthPackage.Scripts.Behaviours;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Behaviours
+namespace HealthPackage.Scripts.Behaviours
 {
     public class Health : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace Behaviours
 
         private void Awake()
         {
-            _current = _max;
+            SetCurrent(_max);
         }
 
         public bool IsNeedHeal()
@@ -31,9 +31,8 @@ namespace Behaviours
         {
             if (amount < 0)
                 return;
-            
-            _current = Math.Clamp(_current + amount, Min, _max);
-            Changed?.Invoke();
+
+            SetCurrent(Math.Clamp(_current + amount, Min, _max));
         }
 
         public void TakeDamage(float amount)
@@ -41,11 +40,16 @@ namespace Behaviours
             if (amount < 0)
                 return;
 
-            _current = Math.Clamp(_current - amount, Min, _max);
-            Changed?.Invoke();
+            SetCurrent(Math.Clamp(_current - amount, Min, _max));
         
             if (_current <= Min)
                 Died?.Invoke();
+        }
+
+        private void SetCurrent(float health)
+        {
+            _current = health;
+            Changed?.Invoke();
         }
     }
 }
