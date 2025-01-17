@@ -13,7 +13,7 @@ namespace Detectors
         private BaseCharacter _character;
         
         public event Action<BaseCharacter> CharacterDetected;
-        public event Action CharacterLost;
+        public event Action<BaseCharacter> CharacterLost;
 
         protected override void OnEnable()
         {
@@ -44,8 +44,8 @@ namespace Detectors
                 if (overlapedCollider != null)
                     return;
 
+                CharacterLost?.Invoke(_character);
                 _character = null;
-                CharacterLost?.Invoke();
             }
         }
     }

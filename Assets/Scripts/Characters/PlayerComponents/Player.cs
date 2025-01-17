@@ -1,3 +1,5 @@
+using Abilities;
+using Abilities.Base;
 using Behaviours;
 using UnityEngine;
 
@@ -7,6 +9,7 @@ namespace Characters.PlayerComponents
     {
         [SerializeField] private InputHandler _inputHandler;
         [SerializeField] private AttackBehaviour _attackBehaviour;
+        [SerializeField] private AbilityBase _vampireAbility;
         
         private float _moveDirection = 0;
         private bool _isJumpRequired;
@@ -18,6 +21,8 @@ namespace Characters.PlayerComponents
             _isJumpRequired = _inputHandler.IsJumpRequired() || _isJumpRequired;
             if (_inputHandler.IsAttackRequired())
                 _attackBehaviour.Attack();
+            if (_inputHandler.IsVampireAbilityRequired())
+                _vampireAbility.Use();
         }
 
         private void FixedUpdate()

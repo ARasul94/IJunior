@@ -47,7 +47,7 @@ namespace Behaviours
             _health = character.Health;
         }
 
-        private void OnCharacterLost()
+        private void OnCharacterLost(BaseCharacter character)
         {
             _health = null;
         }

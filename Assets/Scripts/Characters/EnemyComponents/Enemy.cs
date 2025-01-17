@@ -1,5 +1,6 @@
 using Behaviours;
 using Detectors;
+using Rotators;
 using UnityEngine;
 
 namespace Characters.EnemyComponents
@@ -9,6 +10,7 @@ namespace Characters.EnemyComponents
     {
         [SerializeField] private CharacterDetector _characterDetector;
         [SerializeField] private Patroller _patroller;
+        [SerializeField] private RotatorToTargetDirection _rotator;
         
         private GroundDetector _groundDetector;
         private Transform _target;
@@ -33,6 +35,7 @@ namespace Characters.EnemyComponents
         
             var directionToTarget = (_target.position - transform.position).normalized;
             _mover.Move(directionToTarget.x);
+            _rotator.SetTargetDirection(directionToTarget);
         }
 
         private void OnDestroy()
@@ -53,7 +56,7 @@ namespace Characters.EnemyComponents
             _target = character.transform;
         }
     
-        private void OnCharacterLost()
+        private void OnCharacterLost(BaseCharacter character)
         {
             _target = null;
             _patroller.enabled = true;

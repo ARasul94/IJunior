@@ -15,7 +15,7 @@ namespace HealthPackage.Scripts.Behaviours
         public event Action Changed;
         public float Current => _current;
         public float Max => _max;
-    
+        public bool IsAlive => Mathf.Approximately(_current, Min) == false;
 
         private void Awake()
         {
