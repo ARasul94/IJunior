@@ -33,6 +33,7 @@ namespace Helpers
             while (enabled)
             {
                 UpdateAction?.Invoke();
+                
                 yield return wait;
             }
         }

@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using Abilities.Base;
 using Characters;
 using Detectors;
-using HealthPackage.Scripts.Behaviours;
-using Helpers;
+using Extensions;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Abilities
 {

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Helpers;
+using Extensions;
 using UnityEngine;
 
 namespace Characters.EnemyComponents

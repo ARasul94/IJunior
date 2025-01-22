@@ -32,6 +32,7 @@ namespace Helpers
             {
                 Left = Mathf.Clamp(Left - _updatePeriod, 0, _time);
                 OnTimeChanged?.Invoke(Left);
+                
                 yield return waiter;
             }
             
