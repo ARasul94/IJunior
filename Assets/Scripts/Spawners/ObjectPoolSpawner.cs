@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Items;
+﻿using Items;
 using UnityEngine;
 using UnityEngine.Pool;
 

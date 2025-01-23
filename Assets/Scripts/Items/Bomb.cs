@@ -1,8 +1,5 @@
-﻿using System;
-using Helpers;
-using Spawners;
+﻿using Helpers;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Items
 {
