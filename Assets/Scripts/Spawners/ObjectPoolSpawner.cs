@@ -9,11 +9,11 @@ namespace Spawners
         [SerializeField] private ObjectPoolItem _prefab;
         [SerializeField] private Transform _holder;
         
+        private ObjectPool<ObjectPoolItem> _pool;
+        
         public int SpawnCount { get; private set; }
         public int CreatedCount => _pool.CountAll;
         public int ActiveCount => _pool.CountActive;
-
-        private ObjectPool<ObjectPoolItem> _pool;
 
         protected virtual void Awake()
         {
