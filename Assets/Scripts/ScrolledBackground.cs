@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class ScrolledBackground : MonoBehaviour
