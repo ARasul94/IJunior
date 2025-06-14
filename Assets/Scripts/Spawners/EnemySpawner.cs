@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using EnemyComponents;
+using PoolItems;
 using UnityEngine;
 
 namespace Spawners
 {
-    public class EnemySpawner : ObjectPoolSpawner
+    public class EnemySpawner : ObjectPoolSpawner<Enemy>
     {
         [SerializeField] private Transform _spawnArea;
         [SerializeField] private float _spawnTime = .1f;

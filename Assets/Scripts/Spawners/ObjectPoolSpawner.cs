@@ -1,65 +1,62 @@
-﻿using Items;
+﻿using System;
+using PoolItems;
 using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Spawners
 {
-    public abstract class ObjectPoolSpawner : MonoBehaviour
+    public abstract class ObjectPoolSpawner<T> : MonoBehaviour where T : ObjectPoolItem
     {
-        [SerializeField] private ObjectPoolItem _prefab;
+        [SerializeField] private T _prefab;
         [SerializeField] private Transform _holder;
-        
-        public int SpawnCount { get; private set; }
-        public int CreatedCount => _pool.CountAll;
-        public int ActiveCount => _pool.CountActive;
 
-        private ObjectPool<ObjectPoolItem> _pool;
+        private ObjectPool<T> _pool;
 
         protected virtual void Awake()
         {
-            _pool = new ObjectPool<ObjectPoolItem>(
+            _pool = new ObjectPool<T>(
                 OnCreate,
                 OnGet,
                 OnRelease,
                 OnDestroyObject
             );
+        }
 
-            SpawnCount = 0;
+        private void OnDestroy()
+        {
+            _pool.Dispose();
         }
 
         public void Spawn(Vector3 spawnPosition)
         {
-            ObjectPoolItem poolItem = _pool.Get();
+            T poolItem = _pool.Get();
             poolItem.transform.position = spawnPosition;
-            SpawnCount++;
-        }
-        
-        protected virtual void OnBackToPool(ObjectPoolItem expiredObject)
-        {
-            _pool.Release(expiredObject);
         }
 
-        private ObjectPoolItem OnCreate()
+        public void Release(T poolItem)
+        {
+            _pool.Release(poolItem);
+        }
+
+        private T OnCreate()
         {
             var createdObject = Instantiate(_prefab, _holder);
-            createdObject.OnBackToPool += OnBackToPool;
             return createdObject;
         }
 
-        private void OnGet(ObjectPoolItem poolItem)
+        private void OnGet(T poolItem)
         {
             poolItem.gameObject.SetActive(true);
         }
     
-        private void OnRelease(ObjectPoolItem poolItem)
+        private void OnRelease(T poolItem)
         {
             poolItem.gameObject.SetActive(false);
             poolItem.Release();
         }
 
-        private void OnDestroyObject(ObjectPoolItem poolItem)
+        private void OnDestroyObject(T poolItem)
         {
-            poolItem.OnBackToPool -= OnBackToPool;
             Destroy(poolItem.gameObject);
         }
     }

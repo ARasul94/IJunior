@@ -1,25 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-[RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
 public class ScrolledBackground : MonoBehaviour
 {
-    [SerializeField] private float _scrollYSpeed = 0.1f;
-    [SerializeField] private float _scrollXSpeed = 0.5f;
+    [SerializeField] 
+    [Tooltip("Скорость прокрутки текстуры по вертикали")]
+    private float _textureScrollSpeedY = 0.1f;
+    
+    [SerializeField]
+    [Tooltip("Скорость прокрутки текстуры по горизонтали")]
+    private float _textureScrollSpeedX = 0.5f;
 
-    private MeshRenderer _meshRenderer;
-    private Material _material;
+    private Material _backgroundMaterial;
+
     private void Start()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
-        _material = _meshRenderer.material;
+        var meshRenderer = GetComponent<MeshRenderer>();
+        _backgroundMaterial = meshRenderer.material;
     }
 
     private void Update()
     {
-        var xOffset = Input.GetAxis("Horizontal") * _scrollXSpeed;
-        var verticalInput = Input.GetAxis("Vertical");
-        var yOffset = _scrollYSpeed + (verticalInput > 0 ? verticalInput : 0) * _scrollYSpeed;
-        var offset = new Vector2(xOffset, yOffset);
-        _material.mainTextureOffset += offset * Time.deltaTime;
+        UpdateTextureOffset();
+    }
+
+    private void UpdateTextureOffset()
+    {
+        var scrollOffset = new Vector2(_textureScrollSpeedX, _textureScrollSpeedY) * Time.deltaTime;
+        _backgroundMaterial.mainTextureOffset += scrollOffset;
     }
 }
+

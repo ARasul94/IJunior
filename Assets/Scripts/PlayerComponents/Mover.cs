@@ -15,6 +15,8 @@ namespace PlayerComponents
         private Vector3 _startPosition;
         private Quaternion _minRotation;
         private Quaternion _maxRotation;
+        private Vector2 _velocity;
+        private bool _isTapped;
 
         private void Start()
         {
@@ -28,12 +30,27 @@ namespace PlayerComponents
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
+                _isTapped = true;
+        }
+
+        private void FixedUpdate()
+        {
+            if (_isTapped)
             {
-                _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
+                _velocity.y = _tapForce;
+                _isTapped = false;
                 transform.rotation = _maxRotation;
             }
+            else
+            {
+                _velocity.y = _rigidbody2D.velocity.y;
+            }
+
+            _velocity.x = _speed;
+            _rigidbody2D.velocity = _velocity;
 
             transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
+            _rigidbody2D.angularVelocity = 0f;
         }
     }
 }
